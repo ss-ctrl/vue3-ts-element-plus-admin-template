@@ -8,9 +8,12 @@
 import type { App } from 'vue';
 import {
   ElAside,
+  ElAvatar,
   ElButton,
   ElCheckbox,
   ElContainer,
+  ElDropdown,
+  ElDropdownItem,
   ElForm,
   ElFormItem,
   ElHeader,
@@ -39,7 +42,10 @@ const components = [
   ElMain,
   ElMenu,
   ElMenuItem,
-  ElSubMenu
+  ElSubMenu,
+  ElDropdown,
+  ElDropdownItem,
+  ElAvatar
 ];
 
 export default function (app: App): void {

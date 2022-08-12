@@ -42,7 +42,7 @@ import NavHeader from '@/components/nav-header';
 }
 
 .page-content {
-  height: calc(100% - 48px);
+  height: calc(100% - 65px);
   color: red;
 }
 
@@ -52,7 +52,7 @@ import NavHeader from '@/components/nav-header';
   width: 100%;
   text-align: center;
   align-items: center;
-  height: 48px !important;
+  height: 65px !important;
 }
 
 .el-aside {
