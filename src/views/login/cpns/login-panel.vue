@@ -1,6 +1,6 @@
 <template>
   <div class="login-panel">
-    <h1 class="title">后台管理系统</h1>
+    <h1 class="title">移动物联网</h1>
     <el-tabs type="border-card" stretch>
       <el-tab-pane>
         <template #label>
@@ -25,7 +25,7 @@ import { ref } from 'vue';
 import LoginAccount from '@/views/login/cpns/login-account.vue';
 
 const accountRef = ref<InstanceType<typeof LoginAccount>>();
-const isKeepPassword = ref(true);
+const isKeepPassword = ref<boolean>(true);
 const handleLoginClick = () => {
   console.log('立即登录');
   console.log(isKeepPassword.value);

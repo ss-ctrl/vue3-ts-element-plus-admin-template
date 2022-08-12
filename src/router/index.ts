@@ -13,11 +13,19 @@ const routes: RouteRecordRaw[] = [
   },
   {
     path: '/login',
+    name: 'login',
     component: () => import('@/views/login/login.vue')
   },
   {
     path: '/main',
+    name: 'main',
     component: () => import('@/views/main/main.vue')
+    // children: [] -> 根据userMenus来决定 -> children
+  },
+  {
+    path: '/:pathMatch(.*)*',
+    name: 'not-found',
+    component: () => import('@/views/not-found/not-found.vue')
   }
 ];
 
@@ -28,7 +36,7 @@ const router = createRouter({
 
 /**
  * @author V
- * @description 路由守卫
+ * @description 导航守卫
  * @time 2022-08-11 10:51:59
  */
 router.beforeEach((to) => {

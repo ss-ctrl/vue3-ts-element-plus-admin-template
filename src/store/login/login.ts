@@ -13,6 +13,7 @@ import {
 } from '@/service/login/loginService';
 import { IAccount } from '@/service/login/types';
 import localCache from '@/utils/cache';
+import { mapMenusToRoutes } from '@/utils/map-menus';
 import router from '@/router';
 
 const loginModule: Module<ILoginState, IRootState> = {
@@ -34,6 +35,12 @@ const loginModule: Module<ILoginState, IRootState> = {
     },
     changeUserMenus(state, userMenus: any) {
       state.userMenus = userMenus;
+      // 注册路由 userMenus => routes
+      const routes = mapMenusToRoutes(userMenus);
+      // 将routes => router.main.children
+      routes.forEach((route) => {
+        router.addRoute('main', route);
+      });
     }
   },
   actions: {
@@ -52,8 +59,8 @@ const loginModule: Module<ILoginState, IRootState> = {
 
       // 3.获取路由权限
       const userMenusResult = await requestUserMenusByRoleId(userInfo.role.id);
-      commit('changeUserMenus', userMenusResult);
-      localCache.setCache('userMenus', userMenusResult);
+      commit('changeUserMenus', userMenusResult.data);
+      localCache.setCache('userMenus', userMenusResult.data);
 
       // 4.跳到首页
       router.push('/main');
